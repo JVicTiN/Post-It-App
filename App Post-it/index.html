@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mural de post-its</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main id="view-board" class="view">
+  <header class="bar">
+    <h1>Meu mural</h1>
+    <div class="bar-actions" id="actions-main">
+      <button type="button" id="btn-select" class="btn">Selecionar</button>
+      <button type="button" id="btn-new" class="btn btn-primary">Nova nota</button>
+    </div>
+    <div class="bar-actions" id="actions-select" hidden>
+      <span id="select-count" class="count" aria-live="polite">0 selecionadas</span>
+      <button type="button" id="btn-delete" class="btn btn-danger" disabled>Excluir</button>
+      <button type="button" id="btn-cancel" class="btn">Cancelar</button>
+    </div>
+  </header>
+  <section id="board" class="board" aria-label="Notas"></section>
+  <p id="empty" class="empty" hidden>Seu mural está vazio. Toque em “Nova nota” para começar.</p>
+</main>
+
+<main id="view-editor" class="view" hidden>
+  <header class="bar">
+    <button type="button" id="btn-back" class="btn">Voltar</button>
+    <div class="bar-actions">
+      <button type="button" id="btn-undo" class="btn" title="Ctrl+Z">Desfazer</button>
+      <button type="button" id="btn-redo" class="btn" title="Ctrl+Y">Refazer</button>
+      <button type="button" id="btn-save" class="btn btn-primary" title="Ctrl+S">Salvar</button>
+    </div>
+  </header>
+  <div id="paper" class="paper">
+    <label for="text" class="sr-only">Texto da nota</label>
+    <textarea id="text" placeholder="Escreva sua nota" maxlength="2000"></textarea>
+  </div>
+  <div class="editor-foot">
+    <div id="swatches" class="swatches" role="group" aria-label="Cor da nota"></div>
+    <p id="status" class="status" role="status"></p>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
